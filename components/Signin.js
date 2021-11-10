@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, {useState, useEffect} from 'react'; 
 import { View, Text, StyleSheet, Button, KeyboardAvoidingView, TouchableOpacity, Platform } from "react-native";
 import { useNavigation } from '@react-navigation/core';
 import { ThemeColours } from './ThemeColours'; 

@@ -76,7 +76,7 @@ export function Signup(props) {
 
           <TouchableOpacity 
             style={ (validForm) ? styles.button : styles.buttonDisabled} 
-            disabled={ (validForm) ? false : true }
+            //disabled={ (validForm) ? false : true }
             onPress={ () => submitHandler() }
           >
             <Text style={styles.buttonText}>Sign up</Text>

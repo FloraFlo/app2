@@ -42,7 +42,6 @@ useEffect( () => {
 
 
 const SignupHandler = ( email, password ) => {
-  const Auth = getAuth()
   createUserWithEmailAndPassword( FBauth, email, password )
   .then( (userCredential) => { 
     console.log(userCredential)
