@@ -2,10 +2,20 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, KeyboardAvoidingView, TouchableOpacity, Platform } from "react-native";
 import { useNavigation } from '@react-navigation/core';
 import { ThemeColours } from './ThemeColours'; 
+import { Feedback } from './Feedback';
 
 export function Signin (props) {
 
     const navigation = useNavigation()
+
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
+    useEffect( () => {
+      if( props.auth === true) {
+        navigation.reset({ index: 0, routes: [{ name: 'Home'}]})
+      }
+    }, [props.auth])
 
     return (
     <View>
@@ -16,11 +26,11 @@ export function Signin (props) {
       >
       <View style={styles.inner}>
         <Text>Email</Text>
-        <TextInput style={styles.input} onChangeText={ (val) => validateEmail(val) }/>
+        <TextInput style={styles.input} onChangeText={ (val) => setEmail(val) }/>
         <Text>Password</Text>
         <TextInput 
-        style={styles.input} 
-        onChangeText={ (val) => validatePassword(val) }
+        style={styles.input} secureTextEntry={true}
+        onChangeText={ (val) => setPassword(val) }
         secureTextEntry={true} 
         />
         <TouchableOpacity 
@@ -30,6 +40,8 @@ export function Signin (props) {
         >
           <Text style={styles.buttonText}>Sign in</Text>
         </TouchableOpacity>
+        <Feedback message={props.error} />
+
         <Text>Already have an account?</Text>
         <Button title="Click here to sign in" onPress={() => navigation.navigate("Signin")} />
       </View>

@@ -5,4 +5,5 @@ export const ThemeColours = {
     cream: 'hsla(59, 100%, 90%, 1.0)',
     iris: 'hsla(246, 54%, 53%, 1.0)',
     irislight: 'hsla(246, 54%, 63%, 1.0)',
+    blueyonder: 'hsla(224, 32%, 75%, 1.0)',
 }
